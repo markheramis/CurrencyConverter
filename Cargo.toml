@@ -1,0 +1,9 @@
+[package]
+name = "CashExchange"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.5.30", features = ["derive"] }
+dotenv = "0.15.0"
+rust_decimal = "1.36.0"
