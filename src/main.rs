@@ -27,20 +27,23 @@ fn main() {
     let exchange_rate_api_key = std::env::var("EXCHANGE_RATE_API_KEY").expect("EXCHANGE_RATE_API_KEY: must be set.");
 
     if args.amount.is_none() {
-        println!("Enter amount: ");
+        print!("Enter amount: ");
+        std::io::Write::flush(&mut std::io::stdout()).expect("Failed to flush stdout");
         let mut amount_input = String::new();
         std::io::stdin().read_line(&mut amount_input).unwrap();
         args.amount = Some(Decimal::from_str(amount_input.trim()).expect("Invalid amount format!"));
     }
     if args.from.is_none() {
-        println!("Enter currency to convert from:");
+        print!("Enter currency to convert from: ");
+        std::io::Write::flush(&mut std::io::stdout()).expect("Failed to flush stdout");
         let mut from_input = String::new();
         std::io::stdin().read_line(&mut from_input).unwrap();
         args.from = Some(from_input.trim().to_string()); // Fix applied here
     }
 
     if args.to.is_none() {
-        println!("Enter currency to convert into:");
+        print!("Enter currency to convert into: ");
+        std::io::Write::flush(&mut std::io::stdout()).expect("Failed to flush stdout");
         let mut to_input = String::new();
         std::io::stdin().read_line(&mut to_input).unwrap();
         args.to = Some(to_input.trim().to_string()); // Added missing assignment
