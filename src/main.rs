@@ -46,7 +46,7 @@ fn main() {
         std::io::Write::flush(&mut std::io::stdout()).expect("Failed to flush stdout");
         let mut to_input = String::new();
         std::io::stdin().read_line(&mut to_input).unwrap();
-        args.to = Some(to_input.trim().to_string()); // Added missing assignment
+        args.to = Some(to_input.trim().to_uppercase());
     }
     let url = format!(
         "https://v6.exchangerate-api.com/v6/{}/pair/{}/{}",
